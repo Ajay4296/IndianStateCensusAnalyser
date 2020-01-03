@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "AlgorithmProgram/1.0.0": {
+        "runtime": {
+          "AlgorithmProgram.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AlgorithmProgram/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

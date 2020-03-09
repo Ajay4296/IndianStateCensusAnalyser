@@ -1,0 +1,11 @@
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.exe
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.deps.json
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.runtimeconfig.json
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.runtimeconfig.dev.json
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.dll
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\bin\Debug\netcoreapp3.1\IndianCensusAnalyser.pdb
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\obj\Debug\netcoreapp3.1\IndianCensusAnalyser.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\obj\Debug\netcoreapp3.1\IndianCensusAnalyser.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\obj\Debug\netcoreapp3.1\IndianCensusAnalyser.AssemblyInfo.cs
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\obj\Debug\netcoreapp3.1\IndianCensusAnalyser.dll
+C:\Users\HP\source\repos\IndianCensusAnalyser\IndianCensusAnalyser\obj\Debug\netcoreapp3.1\IndianCensusAnalyser.pdb

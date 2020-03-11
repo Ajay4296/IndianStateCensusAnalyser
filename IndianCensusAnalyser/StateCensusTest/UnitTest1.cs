@@ -10,14 +10,18 @@ namespace StateCensusTest
         string TypeWrongFilePath_UC_1 = @"C:\Users\HP\Downloads\StateCensusData.txt";
         string WrongHeaderFilePath_UC_1 = @"C:\Users\HP\Desktop\StateCensusData.csv";
         string delimeterMismatch_UC_1 = @"C:\Users\HP\Downloads\StateCensusData.csv";
+
+        string CorrectFilePath_UC_2 = @"C:\Users\HP\Downloads\StateCode.csv";
+        string WrongFilePath_UC_2 = @"C:\Users\\Downloads\StateCode.csv";
+        string TypeWrongFilePath_UC_2 = @"C:\Users\HP\Downloads\StateCode.txt";
+        string WrongHeaderFilePath_UC_2 = @"C:\Users\HP\Desktop\StateCode.csv";
+        string delimeterMismatch_UC_2 = @"C:\Users\HP\Downloads\StateCode.csv";
         /// <summary>
-        /// test case 1.1
-        ///Given the States Census CSV file, Check to ensure the Number of Record matches
+        /// match number of line
         /// </summary>
         [Test]
-        public void UseCase1_GivenCSVFilePathProper_whenAnalyse_ItMatchesTheRecord()
+        public void UC_1_Match_number_of_Line()
         {
-          
             string expected = StateCensusAnalyser.CountLines(CorrectFilePath_UC_1);
             string actual = CSVStateCensus.CSVDataUsingIEnumerator(CorrectFilePath_UC_1,',');
             Assert.AreEqual(expected,actual);
@@ -28,7 +32,7 @@ namespace StateCensusTest
         ///Given the State Census CSV File if incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase1_GivenCSVFilePath_Imroper_whenAnalyse_ItThrowsException()
+        public void UseCase1_when_File_is_wrong_throw_exception()
         {
 
             var actual = Assert.Throws<StateCensusException>(() => CSVStateCensus.CSVDataUsingIEnumerator(WrongFilePath_UC_1,','));
@@ -41,7 +45,7 @@ namespace StateCensusTest
         ///Given the State Census CSV File when correct but type incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase1_GivenCSVFilePathCorrect_TypeIsIncorrect_whenAnalyse_ItThrowsException()
+        public void UseCase1_whenGivenType_wrong_throw_Exception()
         {
             var actual = Assert.Throws<StateCensusException>(() => CSVStateCensus.CSVDataUsingIEnumerator(TypeWrongFilePath_UC_1,','));
             string expected = Exception_Type.Wrong_Type_Exception.ToString();
@@ -53,7 +57,7 @@ namespace StateCensusTest
         ///Given the State Census CSV File when correct but delimiter incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase1_GivenCSVFilePathCorrect_DelimiterIsIncorrect_whenAnalyse_ItThrowsException()
+        public void UseCase1_When_delimeter_ItThrowsException()
         {
             var actual = Assert.Throws<StateCensusException>(() => CSVStateCensus.CSVDataUsingIEnumerator(delimeterMismatch_UC_1,';'));
              var expected = Exception_Type.delimeter_exception.ToString();
@@ -65,37 +69,36 @@ namespace StateCensusTest
         ///Given the State Census CSV File when correct but csv header incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase1_GivenCSVFilePathCorrect_CSVHeaderIsIncorrect_whenAnalyse_ItThrowsException()
+        public void UseCase1_GivenHeader_is_not_correct()
         {
             var actual = Assert.Throws<StateCensusException>(() => CSVStateCensus.CSVDataUsingIEnumerator(WrongHeaderFilePath_UC_1,','));
  
              var expected =Exception_Type.Wrong_Header_Exception.ToString();
             Assert.AreEqual(actual.Message,expected);
         }
-        /*/// <summary>
+        /// <summary>
         /// test case 2.1
         ///Given the States Census CSV file, Check to ensure the Number of Record matches
         /// </summary>
         [Test]
-        public void UseCase2_GivenCSVFilePathProper_whenAnalyse_ItMatchesTheRecord()
+        public void UC_2_G_whenAnalyse_ItMatchesTheRecord()
         {
-            LoadDataDelegate loadData = new LoadDataDelegate(CSVStates.CSVDataUsingIEnumerator);
-            object Iteratoritems = loadData(CorrectFilePath_Usecase2);
-            string[] myitems = File.ReadAllLines(@"C:\Users\Bridge Labz\Desktop\censusdata\StateCode.csv");
-            int item = (int)myitems.Length;
-            Assert.AreEqual(item, Iteratoritems);
+            AnayseDataUsingDelegate del = CSVStates.CSVDataUsingIEnumerator;
+            string Iterate = del(CorrectFilePath_UC_2,',');
+            string count = StateCensusAnalyser.CountLines(CorrectFilePath_UC_2);
+            Assert.AreEqual(Iterate,count);
         }
 
-        /// <summary>
+        /// <summary> 
         /// test case 2.2
         ///Given the State Census CSV File if incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase2_GivenCSVFilePath_Imroper_whenAnalyse_ItThrowsException()
+        public void UC_2_GivenCSVFilePath_Incorect_through_exception()
         {
-            LoadDataDelegate loadData = new LoadDataDelegate(CSVStates.CSVDataUsingIEnumerator);
-            object actual = loadData(IncorrectFilePath_Usecase2);
-            var expected = MyEnum.ERROR_IN_FILE_READING.ToString();
+            AnayseDataUsingDelegate del = CSVStates.CSVDataUsingIEnumerator;
+            string actual = del(WrongFilePath_UC_2,',');
+            var expected = Exception_Type.wrong_path_Exception.ToString();
             Assert.AreEqual(actual, expected);
         }
 
@@ -104,11 +107,11 @@ namespace StateCensusTest
         ///Given the State Census CSV File when correct but type incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase2_GivenCSVFilePathCorrect_TypeIsIncorrect_whenAnalyse_ItThrowsException()
+        public void UC_2_TypeIsIncorrect_whenAnalyse_ItThrowsException()
         {
-            LoadDataDelegate loadData = new LoadDataDelegate(CSVStates.CSVDataUsingIEnumerator);
-            var actual = Assert.Throws<CensusAnalyseException>(() => loadData(ErrorTypeFilePath_Usecase2));
-            var expected = MyEnum.INCORRECT_TYPE.ToString();
+            AnayseDataUsingDelegate obj = new AnayseDataUsingDelegate(CSVStates.CSVDataUsingIEnumerator);
+            var actual = Assert.Throws<StateCensusException>(() => obj(TypeWrongFilePath_UC_2,','));
+            var expected = Exception_Type.Wrong_Type_Exception.ToString();
             Assert.AreEqual(actual.Message, expected);
         }
 
@@ -117,25 +120,27 @@ namespace StateCensusTest
         ///Given the State Census CSV File when correct but delimiter incorrect Returns a custom Exception
         /// </summary>
         [Test]
-        public void UseCase2_GivenCSVFilePathCorrect_DelimiterIsIncorrect_whenAnalyse_ItThrowsException()
+        public void UseCase2_GivenCSVFilePathCorrect_DelimiterIsIncorrect()
         {
-            LoadDataDelegate loadData = new LoadDataDelegate(CSVStates.CSVDataUsingIEnumerator);
-            string actual = (string)loadData(CorrectFilePath_Usecase2, '.');
-            var expected = MyEnum.INVALID_DELIMITER.ToString();
+            AnayseDataUsingDelegate del = CSVStates.CSVDataUsingIEnumerator;
+            string actual = del(delimeterMismatch_UC_2, '/');
+            var expected = Exception_Type.delimeter_exception.ToString();
             Assert.AreEqual(actual, expected);
+
         }
 
         /// <summary>
         /// test case 2.5   
+        /// 
         ///Given the State Census CSV File when correct but csv header incorrect Returns a custom Exception
         /// </summary>
         [Test]
         public void UseCase2_GivenCSVFilePathCorrect_CSVHeaderIsIncorrect_whenAnalyse_ItThrowsException()
         {
-            LoadDataDelegate loadData = new LoadDataDelegate(CSVStates.CSVDataUsingIEnumerator);
-            string actual = (string)loadData(FilePath_EmptyHeader_Usecase2);
-            var expected = MyEnum.HEADER_IS_NOT_FOUND.ToString();
+           AnayseDataUsingDelegate del = new AnayseDataUsingDelegate(CSVStates.CSVDataUsingIEnumerator);
+            string actual = del(WrongHeaderFilePath_UC_2,',');
+            var expected = Exception_Type.Wrong_Header_Exception.ToString();
             Assert.AreEqual(actual, expected);
-        }*/
+        }
     }
 }

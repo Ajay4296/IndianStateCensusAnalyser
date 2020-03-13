@@ -1,0 +1,11 @@
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.exe
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.deps.json
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.runtimeconfig.json
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.runtimeconfig.dev.json
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.dll
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\bin\Debug\netcoreapp3.1\IndianCensusInformation.pdb
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\obj\Debug\netcoreapp3.1\IndianCensusInformation.csprojAssemblyReference.cache
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\obj\Debug\netcoreapp3.1\IndianCensusInformation.AssemblyInfoInputs.cache
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\obj\Debug\netcoreapp3.1\IndianCensusInformation.AssemblyInfo.cs
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\obj\Debug\netcoreapp3.1\IndianCensusInformation.dll
+C:\IndianCensusInformation\Ajay\IndianCensusInformation\obj\Debug\netcoreapp3.1\IndianCensusInformation.pdb

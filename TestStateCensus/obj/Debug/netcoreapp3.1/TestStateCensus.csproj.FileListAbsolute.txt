@@ -95,3 +95,15 @@ C:\IndianCensusInformation\Ajay\TestStateCensus\obj\Debug\netcoreapp3.1\TestStat
 C:\IndianCensusInformation\Ajay\TestStateCensus\obj\Debug\netcoreapp3.1\TestStateCensus.csproj.CopyComplete
 C:\IndianCensusInformation\Ajay\TestStateCensus\obj\Debug\netcoreapp3.1\TestStateCensus.dll
 C:\IndianCensusInformation\Ajay\TestStateCensus\obj\Debug\netcoreapp3.1\TestStateCensus.pdb
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\ChoETL.Core.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\ChoETL.JSON.Core.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+C:\IndianCensusInformation\Ajay\TestStateCensus\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll

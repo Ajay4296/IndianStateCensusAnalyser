@@ -37,6 +37,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "ChoETL": {
+              "target": "Package",
+              "version": "[1.1.0.5, )"
+            },
+            "ChoETL.JSON": {
+              "target": "Package",
+              "version": "[1.1.0.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -94,6 +108,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "ChoETL": {
+              "target": "Package",
+              "version": "[1.1.0.5, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.4.0, )"
@@ -101,6 +119,10 @@
             "NUnit3TestAdapter": {
               "target": "Package",
               "version": "[3.15.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
             },
             "nunit": {
               "target": "Package",

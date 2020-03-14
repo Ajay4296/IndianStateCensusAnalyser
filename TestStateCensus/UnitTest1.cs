@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using IndianCensusInformation;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace TestStateCensus
 {
@@ -39,8 +41,8 @@ namespace TestStateCensus
             CSVFactory factory = new CSVFactory();
             AnayseDataUsingDelegate del = ConcreatBuilder.BuilderMethod;
             var actual = Assert.Throws<StateCensusException>(() => del(factory.ReturnObjectUsingFactory("CSVStateCensus"),WrongFilePath_UC_1));
-            string expected = Exception_Type.wrong_path_Exception.ToString();
-            Assert.AreEqual(actual.Message, expected);
+           // string expected = Exception_Type.wrong_path_Exception.ToString();
+            Assert.AreEqual(actual.Message, Exception_Type.wrong_path_Exception.ToString());
         }
         
         /// <summary>
@@ -109,9 +111,10 @@ namespace TestStateCensus
         {
             CSVFactory factory = new CSVFactory();
             AnayseDataUsingDelegate del = ConcreatBuilder.BuilderMethod;
-            string actual = del(factory.ReturnObjectUsingFactory("CSVStates"),WrongFilePath_UC_2);
+            var actual = Assert.Throws<StateCensusException>(() => del(factory.ReturnObjectUsingFactory("CSVStates"),WrongFilePath_UC_2));
+           // string actual = del(factory.ReturnObjectUsingFactory("CSVStates"),WrongFilePath_UC_2);
             var expected = Exception_Type.wrong_path_Exception.ToString();
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual.Message, expected);
         }
 
         /// <summary>
@@ -137,9 +140,10 @@ namespace TestStateCensus
         {
             CSVFactory factory = new CSVFactory();
             AnayseDataUsingDelegate del = ConcreatBuilder.BuilderMethod;
+
             var actual = Assert.Throws<StateCensusException>(() =>del(factory.ReturnObjectUsingFactory("CSVStates"), delimeterMismatch_UC_2,';'));
           var expected = Exception_Type.delimeter_exception.ToString();
-            Assert.AreEqual(actual,expected);
+            Assert.AreEqual(actual.Message,expected);
 
         }
 
@@ -153,9 +157,30 @@ namespace TestStateCensus
         {
             CSVFactory factory = new CSVFactory();
             AnayseDataUsingDelegate del = ConcreatBuilder.BuilderMethod;
-            string actual = del(factory.ReturnObjectUsingFactory("CSVStates"),WrongHeaderFilePath_UC_2);
+            // string actual = del(factory.ReturnObjectUsingFactory("CSVStates"),WrongHeaderFilePath_UC_2);
+            var actual = Assert.Throws<StateCensusException>(() => del(factory.ReturnObjectUsingFactory("CSVStates"),WrongHeaderFilePath_UC_2));
             var expected = Exception_Type.Wrong_Header_Exception.ToString();
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual.Message, expected);
+        }
+        [Test]
+        public void Sorted_Json_File_check_Json_First_Name()
+        {
+            string JsonPath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\tsconfig1.json";
+            var json = File.ReadAllText(JsonPath);
+            JArray array = JArray.Parse(json);
+            var actual = array[0]["State"].ToString();
+            var Expected = "Andhra Pradesh";
+            Assert.AreEqual(actual, Expected);
+        }
+        [Test]
+        public void Sorted_Json_File_CheckFirst_State_Last_Name()
+        {
+            string JsonPath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\tsconfig1.json";
+            var json = File.ReadAllText(JsonPath);
+            JArray array = JArray.Parse(json);
+            var actual = array[28]["State"].ToString();
+            var Expected = "West Bengal";
+            Assert.AreEqual(actual, Expected);
         }
     }
 }

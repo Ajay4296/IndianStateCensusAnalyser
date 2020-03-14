@@ -9,9 +9,17 @@ namespace IndianCensusInformation
     {
         public static string  BuilderMethod(ICSVDataLoad loaddata,string path,char delimeter = ',')
         {
-            string result = loaddata.CSVDataUsingIEnumerator(path, delimeter);
+            try
+            {
+                string result = loaddata.CSVDataUsingIEnumerator(path, delimeter);
                 return result.ToString();
+            }
+            catch (StateCensusException ex)
+            {
+                throw ex;
+            }
         }
-
-    }
+        
+        
 }
+    }

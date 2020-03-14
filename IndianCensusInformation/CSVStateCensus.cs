@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Linq;
 
 namespace IndianCensusInformation
 {
@@ -15,8 +16,9 @@ namespace IndianCensusInformation
             if (!File.Exists(CSVPath))
                 throw new StateCensusException(Exception_Type.wrong_path_Exception.ToString());
 
-            string[] Lines = File.ReadAllLines(CSVPath);
-            if (Lines[0] != "State,Population,AreaInSqKm,DensityPerSqKm")
+            //string[] Lines = File.ReadAllLines(CSVPath);
+            List<string> list = File.ReadAllLines(CSVPath).ToList();
+            if (list[0] != "State,Population,AreaInSqKm,DensityPerSqKm")
                 throw new StateCensusException(Exception_Type.Wrong_Header_Exception.ToString());
 
             foreach (var line in File.ReadLines(CSVPath))
@@ -28,7 +30,7 @@ namespace IndianCensusInformation
             }
 
 
-            IEnumerable<string> iterator = Lines;
+            IEnumerable<string> iterator = list;
             int count = 0;
             foreach (var item in iterator)
                 count++;

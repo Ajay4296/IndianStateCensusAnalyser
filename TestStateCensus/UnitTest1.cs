@@ -189,7 +189,10 @@ namespace TestStateCensus
             var actual = array[28]["State"].ToString();
             var Expected = "West Bengal";
             Assert.AreEqual(actual, Expected);
-        }
+        }/// <summary>
+        /// test case 4.1
+        /// sort json file
+        /// </summary>
        [Test]
         public void Sorted_StateCode_Check_First_state_Name()
         {
@@ -200,6 +203,10 @@ namespace TestStateCensus
             var Expected = "AD";
             Assert.AreEqual(actual, Expected);
         }
+        /// <summary>
+        /// UseCase_4.2
+        /// Sorteds the name of the state code check last state.
+        /// </summary>
         [Test]
         public void Sorted_StateCode_Check_Last_state_Name()
         {
@@ -208,6 +215,34 @@ namespace TestStateCensus
             JArray array = JArray.Parse(json);
             var actual = array[36]["StateCode"].ToString();
             var Expected = "WB";
+            Assert.AreEqual(actual, Expected);
+        }
+        /// <summary>
+        /// UseCase 5.1
+        /// Sorteds the name of the state code check last state.
+        /// </summary>
+        [Test]
+        public void Sort_Json_file_according_State_Population()
+        {
+            string jsonpath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\jsconfig1.json";
+            var json = File.ReadAllText(jsonpath);
+            JArray array = JArray.Parse(json);
+            var actual = array[0]["State"].ToString();
+            var Expected = "Uttar Pradesh";
+            Assert.AreEqual(actual, Expected);
+        }
+        /// <summary>
+        /// UseCase _5.2
+        /// Sorts the last state of the json file according state population print.
+        /// </summary>
+        [Test]
+        public void Sort_Json_file_according_State_Population_print_Last_State()
+        {
+            string jsonpath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\jsconfig1.json";
+            var json = File.ReadAllText(jsonpath);
+            JArray array = JArray.Parse(json);
+            var actual = array[36]["State"].ToString();
+            var Expected = "Sikkim";
             Assert.AreEqual(actual, Expected);
         }
     }

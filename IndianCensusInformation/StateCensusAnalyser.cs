@@ -15,11 +15,11 @@ namespace IndianCensusInformation
         public static string CountLines(string CSVPath)
         {
             int Count = 0;
-                        foreach (string line in File.ReadLines(CSVPath))
-                        {
-                            Console.WriteLine(line);
-                            Count++;
-                        }
+            foreach (string line in File.ReadLines(CSVPath))
+           {
+            Console.WriteLine(line);
+            Count++;
+          }
             return Count.ToString();
         }
         public static string[] SortFileAlfabetically(string[] str)
@@ -64,6 +64,18 @@ namespace IndianCensusInformation
 
             File.WriteAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\jsconfig1.json", sb.ToString());
         }
+        public static void ConvertcsvtoJSONFormat()
+        {
+            string re = File.ReadAllText(@"C:\Users\Bridgelabz\Downloads\StateCensusData.csv");
+            StringBuilder sb = new StringBuilder();
+            using (var p = ChoCSVReader.LoadText(re).WithFirstLineHeader())
+            {
+                using var w = new ChoJSONWriter(sb);
+                w.Write(p);
+            }
+
+            File.WriteAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\temp.json", sb.ToString());
+        }
         public static void ConvertStateCodecsvtoJSON()
         {
             string re = File.ReadAllText(@"C:\Users\Bridgelabz\Downloads\StateCode.csv");
@@ -100,26 +112,26 @@ namespace IndianCensusInformation
         }
       //  string json = JsonConvert.SerializeObject(jsonArray, Formatting.Indented);
       //  string jsonstring = JsonSerializer.Serialize(jsonArray);
-     public static void SortStateCensus()
+     public static void SortStateCensus(String str)
         {
             
-            string jsonfile = File.ReadAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\jsconfig1.json");
+            var jsonfile = File.ReadAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\temp.json");
             JArray jArray = JArray.Parse(jsonfile);
            
-            for(int i =1;i<jArray.Count-1;i++)
+            for(int i =0;i<jArray.Count-1;i++)
              {
-                 for(int j =i+1;j<jArray.Count;j++)
+                 for(int j =0;j<jArray.Count-i-1;j++)
                  {
-                     if (jArray[i]["Population"].ToString().CompareTo(jArray[j]["Population"].ToString()) > 0)
+                    if ((int)jArray[j][str]<(int)jArray[j+1][str])
                      {
-                       var  temp = jArray[i];
-                         jArray[i] = jArray[j];
+                       var  temp = jArray[j+1];
+                         jArray[j+1] = jArray[j];
                          jArray[j] = temp;
                      }
                  }
              }
             string jsonString = JsonConvert.SerializeObject(jArray, Formatting.Indented);
-            File.WriteAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\jsconfig1.json",jsonString);
+            File.WriteAllText(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\temp.json",jsonString);
         }
     }
 }

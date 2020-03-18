@@ -27,7 +27,7 @@ namespace IndianCensusInformation
             var list = new List<string>(iFile);
             Dictionary<int, csvdata> dict = new Dictionary<int, csvdata>();
             var k = 0;
-            for (int i = 1; i < iFile.Length; i++)
+           /* for (int i = 1; i < iFile.Length; i++)
             {
                 csvdata data = new csvdata()
                 {
@@ -38,7 +38,7 @@ namespace IndianCensusInformation
                 };
                 dict.Add(k, data);
                 k++;
-            }
+            }*/
             if (list[0] != "SrNo,State,Name,TIN,StateCode,")
                     throw new StateCensusException(Exception_Type.Wrong_Header_Exception.ToString());
 

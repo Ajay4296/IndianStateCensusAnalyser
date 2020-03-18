@@ -21,7 +21,8 @@ namespace IndianCensusInformation
             StateCensusAnalyser.ConvertStateCodecsvtoJSON();
             StateCensusAnalyser.SortStateCode(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\StateCodeJSON.json");
              StateCensusAnalyser.ConvertcsvtoJSONStateJson();
-            StateCensusAnalyser.SortStateCensus();
+            StateCensusAnalyser.ConvertcsvtoJSONFormat();
+            StateCensusAnalyser.SortStateCensus("DensityPerSqKm");
         }
     }
 }

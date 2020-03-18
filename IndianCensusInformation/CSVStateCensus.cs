@@ -16,9 +16,23 @@ namespace IndianCensusInformation
             if (!File.Exists(CSVPath))
                 throw new StateCensusException(Exception_Type.wrong_path_Exception.ToString());
 
-            //string[] Lines = File.ReadAllLines(CSVPath);
-            List<string> list = File.ReadAllLines(CSVPath).ToList();
-            if (list[0] != "State,Population,AreaInSqKm,DensityPerSqKm")
+            string[] Lines = File.ReadAllLines(CSVPath);
+            //  List<string> list = File.ReadAllLines(CSVPath).ToList();
+            Dictionary<int, csvdata> dict = new Dictionary<int, csvdata>();
+            var k = 0;
+            for (int i = 1; i < Lines.Length; i++)
+            {
+                csvdata data = new csvdata()
+                {
+                    state = Lines[i].Split(',')[0].ToString(),
+                    population = int.Parse(Lines[i].Split(',')[1]),
+                    AreaInSqKm = int.Parse(Lines[i].Split(',')[2]),
+                    DensityInSqKm = int.Parse(Lines[i].Split(',')[3]),
+                };
+                dict.Add(k, data);
+                k++;
+            }
+            if (Lines[0] != "State,Population,AreaInSqKm,DensityPerSqKm")
                 throw new StateCensusException(Exception_Type.Wrong_Header_Exception.ToString());
 
             foreach (var line in File.ReadLines(CSVPath))
@@ -30,11 +44,12 @@ namespace IndianCensusInformation
             }
 
 
-            IEnumerable<string> iterator = list;
+            IEnumerable<string> iterator = Lines;
             int count = 0;
             foreach (var item in iterator)
                 count++;
             return count.ToString();
         }
+       
     }
 }

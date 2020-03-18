@@ -20,7 +20,8 @@ namespace IndianCensusInformation
             StateCensusAnalyser.ConvertcsvtoJSON();
             StateCensusAnalyser.ConvertStateCodecsvtoJSON();
             StateCensusAnalyser.SortStateCode(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\StateCodeJSON.json");
-
+             StateCensusAnalyser.ConvertcsvtoJSONStateJson();
+            StateCensusAnalyser.SortStateCensus();
         }
     }
 }

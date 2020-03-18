@@ -13,11 +13,11 @@ namespace TestStateCensus
         string WrongHeaderFilePath_UC_1 = @"C:\Users\Bridgelabz\Documents\StateCensusData.csv";
         string delimeterMismatch_UC_1 = @"C:\Users\Bridgelabz\Downloads/StateCensusData.csv";
 
-        string CorrectFilePath_UC_2 = @"C:\Users\Bridgelabz\Downloads\StateCode.csv";
+        string CorrectFilePath_UC_2 = @"C:\Users\Bridgelabz\Downloads\StateCode1.csv";
         string WrongFilePath_UC_2 = @"C:\Users\\Downloads\StateCode.csv";
         string TypeWrongFilePath_UC_2 = @"C:\Users\Bridgelabz\Downloads\StateCode.txt";
         string WrongHeaderFilePath_UC_2 = @"C:\Users\Bridgelabz\Documents\StateCode.csv";
-        string delimeterMismatch_UC_2 = @"C:\Users\Bridgelabz\Downloads\StateCode.csv";
+        string delimeterMismatch_UC_2 = @"C:\Users\Bridgelabz\Downloads\StateCode1.csv";
         /// <summary>
         /// match number of line
         /// </summary>
@@ -93,7 +93,7 @@ namespace TestStateCensus
         ///Given the States Census CSV file, Check to ensure the Number of Record matches
         /// </summary>
         [Test]
-        public void UC_2_G_whenAnalyse_ItMatchesTheRecord()
+        public void UC_2_whenAnalyse_ItMatchesTheRecord()
         {
             CSVFactory factory = new CSVFactory();
             AnayseDataUsingDelegate del = ConcreatBuilder.BuilderMethod;
@@ -162,7 +162,11 @@ namespace TestStateCensus
             var expected = Exception_Type.Wrong_Header_Exception.ToString();
             Assert.AreEqual(actual.Message, expected);
         }
-        [Test]
+        /// <summary>
+        /// TestCase-3.1
+        /// Sorteds the first name of the json file check json.
+        /// </summary>
+       [Test]
         public void Sorted_Json_File_check_Json_First_Name()
         {
             string JsonPath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\tsconfig1.json";
@@ -172,14 +176,38 @@ namespace TestStateCensus
             var Expected = "Andhra Pradesh";
             Assert.AreEqual(actual, Expected);
         }
+        /// <summary>
+        /// TestCase_3.2
+        /// Sorteds the last name of the json file check first state.
+        /// </summary>
         [Test]
-        public void Sorted_Json_File_CheckFirst_State_Last_Name()
+        public void Sorted_Json_File_Check_State_Last_Name()
         {
             string JsonPath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\tsconfig1.json";
             var json = File.ReadAllText(JsonPath);
             JArray array = JArray.Parse(json);
             var actual = array[28]["State"].ToString();
             var Expected = "West Bengal";
+            Assert.AreEqual(actual, Expected);
+        }
+       [Test]
+        public void Sorted_StateCode_Check_First_state_Name()
+        {
+            string jsonpath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\StateCodeJSON.json";
+            var json = File.ReadAllText(jsonpath);
+            JArray array = JArray.Parse(json);
+            var actual = array[0]["StateCode"].ToString();
+            var Expected = "AD";
+            Assert.AreEqual(actual, Expected);
+        }
+        [Test]
+        public void Sorted_StateCode_Check_Last_state_Name()
+        {
+            string jsonpath = @"C:\IndianCensusInformation\Ajay\IndianCensusInformation\StateCodeJSON.json";
+            var json = File.ReadAllText(jsonpath);
+            JArray array = JArray.Parse(json);
+            var actual = array[36]["StateCode"].ToString();
+            var Expected = "WB";
             Assert.AreEqual(actual, Expected);
         }
     }

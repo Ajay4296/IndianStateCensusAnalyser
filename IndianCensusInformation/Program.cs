@@ -18,6 +18,8 @@ namespace IndianCensusInformation
             }
             File.WriteAllLines(@"C:\Users\Bridgelabz\Downloads\SortedCSV.csv", sortLines);
             StateCensusAnalyser.ConvertcsvtoJSON();
+            StateCensusAnalyser.ConvertStateCodecsvtoJSON();
+            StateCensusAnalyser.SortStateCode(@"C:\IndianCensusInformation\Ajay\IndianCensusInformation\StateCodeJSON.json");
 
         }
     }
